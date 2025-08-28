@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registered Users</title>
+</head>
+<body>
+    <h2>Registered Users</h2>
+
+    {% if users %}
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password (hashed)</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No users found in the database.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>
